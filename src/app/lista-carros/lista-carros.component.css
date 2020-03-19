@@ -1,0 +1,14 @@
+.automoviles li{
+    list-style: none;
+    background-color: aquamarine;
+    margin: 8px;
+    padding: 10px;
+    border-radius: 1em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.badge{
+    background-color: whitesmoke;
+    padding: 10px;
+}
