@@ -1,9 +1,7 @@
-export interface Automovil{
-
+export interface Automovil {
     marca: string;
     modelo: string;
     color: string;
     descripcion: string;
-    year: number;
-
+    fecha_registro: Date;
 }

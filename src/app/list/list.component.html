@@ -1,0 +1,30 @@
+<ng-template #infAuto let-modal>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Vehiculo elegido</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Modelo: {{automovilelegido.modelo}}</label>
+                <br/>
+                <label>Marca: {{automovilelegido.marca}}</label>
+                <br/>
+                <label>Color: {{automovilelegido.color}}</label>
+                <br/>
+                <label>Descripción: {{automovilelegido.descripcion}}</label>
+                <br/>
+                <label>Fecha de registro: {{automovilelegido.fecha_registro}}</label>
+            </div> 
+        </div>
+    </div>
+</ng-template>
+
+<ng-container *ngFor="let auto of automoviles">
+    <div  class="automoviles">
+        <div class="fas fa-eye" (click)="onSelect(auto,infAuto)"></div>
+        <div>{{auto.descripcion}} </div>
+    </div>
+</ng-container>

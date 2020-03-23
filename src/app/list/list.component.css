@@ -1,0 +1,18 @@
+  
+.automoviles {
+    list-style: none;
+    background-color: #84a9ac;
+    margin: 8px;
+    padding: 10px;
+    border-radius: 1em;
+    display: flex;
+    justify-content: space-between;
+    color: whitesmoke;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.automoviles{
+    background-color: #84a9ac;
+}
+
