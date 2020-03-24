@@ -14,7 +14,6 @@ export class ListComponent implements OnInit {
 
   automoviles: Automovil[];
   automovilelegido: Automovil;
-  closeResult = '';
 
   constructor( private modalService: NgbModal ) { }
 

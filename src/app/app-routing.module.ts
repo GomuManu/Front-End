@@ -1,8 +1,29 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ListComponent } from './list/list.component';
+import { TablaComponent } from './tabla/tabla.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'lista',
+    component: ListComponent,
+  },
+  {
+    path: 'tabla',
+    component: TablaComponent,
+  },
+  { 
+    path: '',
+    redirectTo: 'tabla',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

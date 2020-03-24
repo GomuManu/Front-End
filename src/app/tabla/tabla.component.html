@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Color</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Fecha de registro</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let auto of automoviles; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ auto.marca }}</td>
+      <td>{{ auto.modelo }}</td>
+      <td>{{ auto.color }}</td>
+      <td>{{ auto.descripcion }}</td>
+      <td>{{ auto.fecha_registro }}</td>
+    </tr>
+    </tbody>
+  </table>

@@ -1525,6 +1525,7 @@ pre code {
 }
 
 .table thead th {
+  background-color: #84a9ac;
   vertical-align: bottom;
   border-bottom: 2px solid #dee2e6;
 }
