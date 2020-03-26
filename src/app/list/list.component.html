@@ -1,9 +1,13 @@
-<ng-container class="contenedor" *ngFor="let auto of automoviles">
+<ng-container class="contenedor" *ngFor="let auto of automoviles | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
     <div  class="automoviles">
         <div class="fas fa-eye" (click)="onSelect(auto,infAuto)"></div>
         <div>{{auto.descripcion}} </div>
     </div>
 </ng-container>
+
+<div class="pagination"> 
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="automoviles.length" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+</div>
 
 <ng-template #infAuto let-modal>
     <div class="modal-dialog">
@@ -15,15 +19,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <label>Modelo: {{automovilelegido.modelo}}</label>
+                <label>Modelo: {{automovilelegido.id}}</label>
                 <br/>
                 <label>Marca: {{automovilelegido.marca}}</label>
                 <br/>
-                <label>Color: {{automovilelegido.color}}</label>
+                <label>Color: {{automovilelegido.submarca}}</label>
                 <br/>
-                <label>Descripción: {{automovilelegido.descripcion}}</label>
+                <label>Descripción: {{automovilelegido.modelos}}</label>
                 <br/>
-                <label>Fecha de registro: {{automovilelegido.fecha_registro}}</label>
+                <label>Fecha de registro: {{automovilelegido.descripcion}}</label>
             </div> 
         </div>
     </div>
