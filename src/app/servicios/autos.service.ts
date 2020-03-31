@@ -13,4 +13,17 @@ export class AutosService {
   getAutos(): Observable<any> {
     return this.http.get<any>(this.autosURL);
   }
+
+  updateAuto(auto: Automovil): Observable<any> {
+    return this.http.put<any>(`${this.autosURL}/${auto._id}`, auto);
+  }
+
+  agregarAuto(auto: Automovil): Observable<any> {
+    return this.http.post(this.autosURL, auto);
+  }
+
+  deleteAuto(auto: Automovil): Observable<any> {
+    return this.http.delete(`${this.autosURL}/${auto._id}`);
+  }
+
 }

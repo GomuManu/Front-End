@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
    page = 1;
    pageSize = 5;
 
+
   automoviles: Automovil[];
   automovilelegido: Automovil;
 

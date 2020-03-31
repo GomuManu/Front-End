@@ -1,7 +1,8 @@
+<button type="button" (click)=openModalAgregar() class="btn btn-dark">Agregar <i class="fa fa-plus"></i></button>
 <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">ID</th>
       <th scope="col">Marca</th>
       <th scope="col">Submarca</th>
       <th scope="col">Modelos</th>
@@ -12,16 +13,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let auto of automoviles | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-      <td>{{ auto.id }}</td>
+      <td>{{ auto._id }}</td>
       <td>{{ auto.marca }}</td>
       <td>{{ auto.submarca }}</td>
       <td>{{ auto.modelos }}</td>
       <td>{{ auto.descripcion }}</td>
-      <td><i class="far fa-edit"></i></td>
-      <td><i class="fas fa-trash-alt"></i></td>
+      <td (click)=openModalEdtiar(auto)><i class="far fa-edit"></i></td>
+      <td (click) =openModalEliminar(auto) ><i class="fas fa-trash-alt"></i></td>
     </tr>
     </tbody>
   </table>
   <div class="pagination"> 
-    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="automoviles.length" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="automoviles?.length" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
   </div>

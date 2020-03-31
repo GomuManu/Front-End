@@ -6,7 +6,7 @@
 </ng-container>
 
 <div class="pagination"> 
-    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="automoviles.length" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="automoviles?.length" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
 </div>
 
 <ng-template #infAuto let-modal>
@@ -19,15 +19,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <label>Modelo: {{automovilelegido.id}}</label>
+                <label>ID: {{automovilelegido._id}}</label>
                 <br/>
                 <label>Marca: {{automovilelegido.marca}}</label>
                 <br/>
                 <label>Color: {{automovilelegido.submarca}}</label>
                 <br/>
-                <label>Descripción: {{automovilelegido.modelos}}</label>
+                <label>Modelos: {{automovilelegido.modelos}}</label>
                 <br/>
-                <label>Fecha de registro: {{automovilelegido.descripcion}}</label>
+                <label>Descripnción: {{automovilelegido.descripcion}}</label>
             </div> 
         </div>
     </div>

@@ -9996,6 +9996,7 @@ a.text-dark:hover, a.text-dark:focus {
   h3 {
     orphans: 3;
     widows: 3;
+    color: blue;
   }
   h2,
   h3 {
