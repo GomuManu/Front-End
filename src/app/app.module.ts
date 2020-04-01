@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { FormsModule } from '@angular/forms';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
     TablaComponent,
     PageNotFoundComponent,
     ModalAddUpdateComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    FormatoModelosPipe
   ],
   imports: [
     BrowserModule,

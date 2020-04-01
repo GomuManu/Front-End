@@ -16,15 +16,20 @@ export class TablaComponent implements OnInit {
   page = 1;
   pageSize = 10;
 
+
+  public displayProgresBar: boolean;
   automoviles: Automovil[];
   automovilelegido: Automovil;
 
   constructor( private autosService: AutosService, private modal: NgbModal ) { }
 
   ngOnInit() {
+    this.displayProgresBar = true;
+    this.page = +sessionStorage.getItem('currentPage');
     this.autosService.getAutos().subscribe((responce) => {
       this.automoviles = responce.data;
     });
+    this.displayProgresBar = false;
   }
 
   openModalEdtiar(auto: Automovil) {
@@ -33,7 +38,11 @@ export class TablaComponent implements OnInit {
       modalRet.componentInstance.action = 'Editar';
       modalRet.result.then(
         (auto) => {
-          this.autosService.updateAuto(auto).subscribe(response => console.log(response));
+          this.autosService.updateAuto(auto).subscribe(response => {
+            console.log(response);
+            sessionStorage.setItem('currentPage', this.page.toString());
+            this.ngOnInit();
+          });
         },
         (reason) => {
           console.log(reason);
@@ -46,7 +55,11 @@ export class TablaComponent implements OnInit {
     modalRet.componentInstance.action = 'Agregar';
     modalRet.result.then(
       (auto) => {
-        this.autosService.agregarAuto(auto).subscribe(response => console.log(response));
+        this.autosService.agregarAuto(auto).subscribe(response => {
+          console.log(response);
+          sessionStorage.setItem('currentPage', this.page.toString());
+          this.ngOnInit();
+        });
       },
       (reason) => {
         console.log(reason);
@@ -61,8 +74,8 @@ openModalEliminar(auto: Automovil) {
   modalRet.result.then(
       (auto) => {
         this.autosService.deleteAuto(auto).subscribe(response => {
-        console.log(response) ;
-        console.log('Se ha eliminado correctamente') ;
+        sessionStorage.setItem('currentPage', this.page.toString());
+        this.ngOnInit();
       })
       },
       (reason) => {

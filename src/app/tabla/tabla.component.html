@@ -12,11 +12,14 @@
     </tr>
     </thead>
     <tbody>
+      <p *ngIf= "displayProgresBar">
+        <ngb-progressbar type="info" [value]="100" [animated] = "true" [striped] = "true" ></ngb-progressbar>
+      </p>       
     <tr *ngFor="let auto of automoviles | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
       <td>{{ auto._id }}</td>
       <td>{{ auto.marca }}</td>
       <td>{{ auto.submarca }}</td>
-      <td>{{ auto.modelos }}</td>
+      <td>{{ auto.modelos |  formatoModelos }}</td>
       <td>{{ auto.descripcion }}</td>
       <td (click)=openModalEdtiar(auto)><i class="far fa-edit"></i></td>
       <td (click) =openModalEliminar(auto) ><i class="fas fa-trash-alt"></i></td>

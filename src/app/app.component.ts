@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 
 
 
@@ -7,7 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Front-End';
   titulo = 'Catalogo';
+
+  ngOnInit() {
+    sessionStorage.setItem('currentPage', '1');
+  }
+
 }
