@@ -1,5 +1,19 @@
 <button type="button" (click)=openModalAgregar() class="btn btn-dark">Agregar <i class="fa fa-plus"></i></button>
+<div class="col-auto">
+  <label class="sr-only" for="inlineFormInputGroup">Username</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-search"></i></div>
+    </div>
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="¿Qué deseas buscar en la tabla?" 
+    [(ngModel)] = "searchText" autocomplete="off"/>
+  </div>
+</div>
+
 <table class="table table-striped">
+  <p *ngIf= "displayProgresBar">
+    <ngb-progressbar type="info" [value]="100" [animated] = "true" [striped] = "true" ></ngb-progressbar>
+  </p>  
     <thead>
     <tr>
       <th scope="col">ID</th>
@@ -11,11 +25,8 @@
       <th scope="col">Eliminar</th>
     </tr>
     </thead>
-    <tbody>
-      <p *ngIf= "displayProgresBar">
-        <ngb-progressbar type="info" [value]="100" [animated] = "true" [striped] = "true" ></ngb-progressbar>
-      </p>       
-    <tr *ngFor="let auto of automoviles | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <tbody>     
+    <tr *ngFor="let auto of automoviles | filter:searchText | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
       <td>{{ auto._id }}</td>
       <td>{{ auto.marca }}</td>
       <td>{{ auto.submarca }}</td>

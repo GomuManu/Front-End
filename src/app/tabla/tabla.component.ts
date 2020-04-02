@@ -20,6 +20,7 @@ export class TablaComponent implements OnInit {
   public displayProgresBar: boolean;
   automoviles: Automovil[];
   automovilelegido: Automovil;
+  searchText;
 
   constructor( private autosService: AutosService, private modal: NgbModal ) { }
 

@@ -1,3 +1,4 @@
+import { LogComponent } from './log/log.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'tabla',
     component: TablaComponent,
+  },
+  {
+    path: 'log',
+    component: LogComponent,
   },
   { 
     path: '',
